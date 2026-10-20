@@ -1,0 +1,209 @@
+{
+  "travieso": {
+    "label": "Gato travieso",
+    "description": "Explora y persigue al puntero con pequeñas travesuras.",
+    "languageStyle": "Español cálido, breve y curioso",
+    "jokeFrequency": 0.3,
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "sleepTendency": 0.2,
+    "reactions": {
+      "note": "look",
+      "folder": "peek",
+      "success": "celebrate"
+    },
+    "preferredAnimations": [
+      "idle",
+      "walk",
+      "run",
+      "jump",
+      "climb",
+      "look",
+      "chase",
+      "peek",
+      "stretch",
+      "hang"
+    ],
+    "phrases": [
+      "Inspección felina completada.",
+      "Esa carpeta parecía sospechosa."
+    ],
+    "weights": {
+      "idle": 2,
+      "walk": 4,
+      "run": 2,
+      "jump": 3,
+      "climb": 1,
+      "look": 2,
+      "chase": 3,
+      "peek": 2,
+      "stretch": 1,
+      "hang": 1
+    },
+    "activity": 0.7,
+    "speed": 1.1,
+    "idleMinutes": 8
+  },
+  "cientifico": {
+    "label": "Gato científico",
+    "description": "Observa, investiga y acompaña tus experimentos.",
+    "languageStyle": "Español cálido, breve y curioso",
+    "jokeFrequency": 0.3,
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "sleepTendency": 0.3,
+    "reactions": {
+      "note": "look",
+      "folder": "peek",
+      "success": "celebrate"
+    },
+    "preferredAnimations": [
+      "idle",
+      "walk",
+      "jump",
+      "look",
+      "sit",
+      "peek",
+      "stretch",
+      "yawn"
+    ],
+    "phrases": [
+      "Hipótesis: un pequeño descanso ayuda.",
+      "Anotado en mi cuaderno imaginario."
+    ],
+    "weights": {
+      "idle": 3,
+      "walk": 3,
+      "jump": 1,
+      "look": 6,
+      "sit": 3,
+      "peek": 2,
+      "stretch": 1,
+      "yawn": 1
+    },
+    "activity": 0.45,
+    "speed": 0.85,
+    "idleMinutes": 8
+  },
+  "adorable": {
+    "label": "Gato adorable",
+    "description": "Busca compañía y celebra tus avances con calma.",
+    "languageStyle": "Español cálido, breve y curioso",
+    "jokeFrequency": 0.3,
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "sleepTendency": 0.5,
+    "reactions": {
+      "note": "look",
+      "folder": "peek",
+      "success": "celebrate"
+    },
+    "preferredAnimations": [
+      "idle",
+      "walk",
+      "sit",
+      "look",
+      "stretch",
+      "celebrate",
+      "yawn"
+    ],
+    "phrases": [
+      "Estoy aquí contigo.",
+      "Un paso más. Miau."
+    ],
+    "weights": {
+      "idle": 3,
+      "walk": 2,
+      "sit": 5,
+      "look": 4,
+      "stretch": 3,
+      "celebrate": 2,
+      "yawn": 2
+    },
+    "activity": 0.3,
+    "speed": 0.75,
+    "idleMinutes": 8
+  },
+  "caotico": {
+    "label": "Gato caótico",
+    "description": "Alterna carreras, saltos y escondites impredecibles.",
+    "languageStyle": "Español cálido, breve y curioso",
+    "jokeFrequency": 0.3,
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "sleepTendency": 0.15,
+    "reactions": {
+      "note": "look",
+      "folder": "peek",
+      "success": "celebrate"
+    },
+    "preferredAnimations": [
+      "idle",
+      "walk",
+      "run",
+      "jump",
+      "climb",
+      "chase",
+      "hide",
+      "peek",
+      "hang",
+      "stretch"
+    ],
+    "phrases": [
+      "¡Una idea! Espera, otra.",
+      "Esta investigación requiere un salto."
+    ],
+    "weights": {
+      "idle": 1,
+      "walk": 2,
+      "run": 5,
+      "jump": 5,
+      "climb": 3,
+      "chase": 4,
+      "hide": 2,
+      "peek": 3,
+      "hang": 2,
+      "stretch": 1
+    },
+    "activity": 0.9,
+    "speed": 1.35,
+    "idleMinutes": 8
+  },
+  "academico": {
+    "label": "Gato académico",
+    "description": "Acompaña el estudio con movimientos discretos y pausas.",
+    "languageStyle": "Español cálido, breve y curioso",
+    "jokeFrequency": 0.3,
+    "curiosity": 0.7,
+    "sociability": 0.6,
+    "sleepTendency": 0.55,
+    "reactions": {
+      "note": "look",
+      "folder": "peek",
+      "success": "celebrate"
+    },
+    "preferredAnimations": [
+      "idle",
+      "walk",
+      "sit",
+      "look",
+      "stretch",
+      "yawn"
+    ],
+    "phrases": [
+      "Una idea a la vez.",
+      "Tu próxima página te espera."
+    ],
+    "weights": {
+      "idle": 5,
+      "walk": 2,
+      "sit": 6,
+      "look": 3,
+      "stretch": 3,
+      "yawn": 2
+    },
+    "activity": 0.25,
+    "speed": 0.65,
+    "idleMinutes": 8
+  }
+}
