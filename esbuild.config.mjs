@@ -1,10 +1,12 @@
 import esbuild from 'esbuild';
 import {readFile,writeFile} from 'node:fs/promises';
 const production = process.argv.includes('production');
+const notices='/*!\nMiauwi — MIT; see LICENSE.\n'+await readFile('THIRD_PARTY_NOTICES.md','utf8')+'\n*/';
 await writeFile('styles.css',(await readFile('pet.css','utf8'))+'\n'+(await readFile('ui.css','utf8')));
 const context = await esbuild.context({
   entryPoints: ['src/main.ts'], bundle: true, external: ['obsidian','electron','node:*'],
   format: 'cjs', target: 'es2022', platform: 'node', outfile: 'main.js',
+  banner: {js:notices},
   sourcemap: production ? false : 'inline', minify: production, logLevel: 'info'
 });
 if (production) { await context.rebuild(); await context.dispose(); }
