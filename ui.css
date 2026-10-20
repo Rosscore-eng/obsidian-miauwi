@@ -1,0 +1,11 @@
+.miauwi-chat{display:flex;flex-direction:column;gap:10px;padding:16px;min-height:0;height:100%}
+.miauwi-chat h2{margin:0;font-size:1.3em}.miauwi-muted{color:var(--text-muted);font-size:.85em}
+.miauwi-shortcuts{display:flex;flex-wrap:wrap;gap:6px}.miauwi-shortcuts button{font-size:.85em}
+.miauwi-messages{flex:1;overflow-y:auto;min-height:100px;display:flex;flex-direction:column;gap:12px;padding:4px}
+.miauwi-message{border:1px solid var(--background-modifier-border);border-radius:12px;padding:10px;background:var(--background-secondary)}
+.miauwi-message-user{margin-left:20px;border-color:var(--interactive-accent)}.miauwi-message-assistant{margin-right:12px}
+.miauwi-message strong{display:block;color:var(--text-accent);font-size:.85em;margin-bottom:5px}
+.miauwi-preserve{white-space:pre-wrap;overflow-wrap:anywhere}.miauwi-chat-form{display:flex;gap:8px;align-items:flex-end}
+.miauwi-chat-form textarea{resize:vertical;flex:1;min-width:0}.miauwi-chat-form button{height:36px}
+.miauwi-status{font-size:.85em;color:var(--text-muted);min-height:1em}.miauwi-error{color:var(--text-error)}
+.miauwi-task-details{color:var(--text-muted);font-size:.9em}.miauwi-actions{display:flex;gap:8px;flex-wrap:wrap}

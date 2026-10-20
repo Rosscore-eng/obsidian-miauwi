@@ -1,0 +1,9 @@
+{
+  "id": "miauwi",
+  "name": "Miauwi",
+  "version": "1.0.0",
+  "minAppVersion": "1.6.0",
+  "description": "Tu gato académico: nombre personalizable, recordatorios, tareas y agentes opcionales.",
+  "author": "Rosscore-eng",
+  "isDesktopOnly": true
+}

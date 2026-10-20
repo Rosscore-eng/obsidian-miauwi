@@ -1,0 +1,10 @@
+node_modules/
+.npm-cache/
+dist/
+test-vault/
+.superpowers/
+coverage/
+*.log
+.DS_Store
+data.json
+.env*

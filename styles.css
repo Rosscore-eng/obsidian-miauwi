@@ -1,0 +1,147 @@
+.miauwi-overlay {
+  --miauwi-size: 72px;
+  --miauwi-gaze-x: 0px;
+  --miauwi-gaze-y: 0px;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--text-muted, #8b91a1);
+  contain: layout style;
+}
+.miauwi-overlay[hidden], .miauwi-bubble[hidden] { display: none !important; }
+.miauwi-cat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: var(--miauwi-size);
+  height: var(--miauwi-size);
+  padding: 0 !important;
+  margin: 0;
+  border: 0 !important;
+  border-radius: 14px;
+  background: transparent !important;
+  box-shadow: none !important;
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform;
+}
+.miauwi-cat:focus-visible { outline: 2px solid var(--interactive-accent, #a78bfa); outline-offset: 2px; }
+.miauwi-cat-art { width: 100%; height: 100%; display: block; overflow: visible; filter: drop-shadow(0 1px 1px #ffffff40); }
+.miauwi-facing { transform-origin: 50px 60px; }
+.miauwi-overlay[data-facing="left"] .miauwi-facing { transform: translateX(100px) scaleX(-1); }
+.miauwi-tail { transform-origin: 70px 70px; animation: miauwi-tail 4s ease-in-out infinite; }
+.miauwi-head { transform-origin: 49px 54px; }
+.miauwi-pupils { transform: translate(var(--miauwi-gaze-x), var(--miauwi-gaze-y)); transition: transform .1s ease-out; }
+.miauwi-eyes { transform-origin: 50px 43px; animation: miauwi-blink 6.5s infinite; }
+.miauwi-closed-eyes, .miauwi-hearts, .miauwi-sleep-marks { opacity: 0; }
+.miauwi-leg { transform-origin: 40px 72px; }
+.miauwi-custom-skin { display: none; position: absolute; inset: 0; background-repeat: no-repeat; pointer-events: none; image-rendering: auto; }
+.miauwi-overlay[data-skin="custom"] .miauwi-cat-art { display: none; }
+.miauwi-overlay[data-skin="custom"] .miauwi-custom-skin {
+  display: block;
+  background-position: 0 var(--miauwi-sprite-y);
+  animation: miauwi-sprite var(--miauwi-sprite-duration) steps(var(--miauwi-sprite-frames)) infinite;
+}
+.miauwi-overlay[data-skin="custom"][data-facing="left"] .miauwi-custom-skin { transform: scaleX(-1); }
+.miauwi-bubble {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 10px 10px 13px;
+  border: 1px solid var(--background-modifier-border, #515361);
+  border-radius: 13px 13px 13px 4px;
+  background: var(--background-primary, #23232b);
+  color: var(--text-normal, #ededf3);
+  box-shadow: 0 4px 18px #0003;
+  font: 13px/1.5 var(--font-interface, system-ui, sans-serif);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-height: min(260px, 55vh);
+  overflow-y: auto;
+  pointer-events: auto;
+}
+.miauwi-bubble span { min-width: 0; }
+.miauwi-bubble-dismiss { flex: 0 0 auto; width: 22px; height: 22px; padding: 0 !important; border: 0; box-shadow: none; background: transparent; color: var(--text-muted); font-size: 18px; cursor: pointer; }
+.miauwi-overlay[data-urgent="true"] .miauwi-bubble { border-color: var(--interactive-accent, #a78bfa); }
+.miauwi-overlay[data-state="walk"] .miauwi-torso,
+.miauwi-overlay[data-state="chase"] .miauwi-torso,
+.miauwi-overlay[data-state="run"] .miauwi-torso { animation: miauwi-bob .45s ease-in-out infinite; }
+.miauwi-overlay[data-state="walk"] .miauwi-leg,
+.miauwi-overlay[data-state="chase"] .miauwi-leg,
+.miauwi-overlay[data-state="run"] .miauwi-leg { animation: miauwi-step .45s ease-in-out infinite alternate; }
+.miauwi-overlay[data-state="walk"] .miauwi-leg-back,
+.miauwi-overlay[data-state="chase"] .miauwi-leg-back,
+.miauwi-overlay[data-state="run"] .miauwi-leg-back { animation-direction: alternate-reverse; }
+.miauwi-overlay[data-state="run"] .miauwi-torso,
+.miauwi-overlay[data-state="chase"] .miauwi-torso,
+.miauwi-overlay[data-state="run"] .miauwi-leg,
+.miauwi-overlay[data-state="chase"] .miauwi-leg { animation-duration: .24s; }
+.miauwi-overlay[data-state="jump"] .miauwi-torso { transform: rotate(-10deg); transform-origin: 50px 72px; }
+.miauwi-overlay[data-state="jump"] .miauwi-leg { transform: rotate(-22deg); }
+.miauwi-overlay[data-state="fall"] .miauwi-leg { transform: rotate(18deg); }
+.miauwi-overlay[data-state="climb"] .miauwi-leg { animation: miauwi-step .5s ease-in-out infinite alternate; }
+.miauwi-overlay[data-state="climb"] .miauwi-head { transform: rotate(-12deg); }
+.miauwi-overlay[data-state="sit"] .miauwi-torso { transform: translate(2px, 7px) scale(.94, .86); transform-origin: 50px 90px; }
+.miauwi-overlay[data-state="stretch"] .miauwi-torso { animation: miauwi-stretch 2s ease-in-out both; transform-origin: 50px 88px; }
+.miauwi-overlay[data-state="stretch"] .miauwi-head { animation: miauwi-stretch-head 2s ease-in-out both; }
+.miauwi-overlay[data-state="yawn"] .miauwi-head { animation: miauwi-yawn 2.5s ease-in-out; }
+.miauwi-overlay[data-state="yawn"] .miauwi-mouth { stroke-width: 5px; }
+.miauwi-overlay[data-state="sleep"] .miauwi-facing { transform: translate(6px, 34px) scale(.88, .62); transform-origin: 50px 65px; }
+.miauwi-overlay[data-state="sleep"] .miauwi-eyes,
+.miauwi-overlay[data-state="yawn"] .miauwi-eyes { opacity: 0; }
+.miauwi-overlay[data-state="sleep"] .miauwi-closed-eyes,
+.miauwi-overlay[data-state="yawn"] .miauwi-closed-eyes { opacity: 1; }
+.miauwi-overlay[data-state="sleep"] .miauwi-head { animation: miauwi-breathe 4s ease-in-out infinite; }
+.miauwi-overlay[data-state="sleep"] .miauwi-tail { animation-duration: 9s; }
+.miauwi-overlay[data-state="sleep"] .miauwi-sleep-marks { opacity: .8; animation: miauwi-dream 3s ease-out infinite; }
+.miauwi-overlay[data-state="sleep"][data-sleep-scene="false"] .miauwi-sleep-marks { display: none; }
+.miauwi-overlay[data-state="wake"] .miauwi-head { animation: miauwi-wake .9s ease-out; }
+.miauwi-overlay[data-state="look"] .miauwi-head { animation: miauwi-look 2.8s ease-in-out; }
+.miauwi-overlay[data-state="hide"] .miauwi-cat-art { opacity: .2; transform: translateY(38%); }
+.miauwi-overlay[data-state="peek"] .miauwi-torso { transform: translateY(12px) scaleY(.8); transform-origin: 50px 90px; }
+.miauwi-overlay[data-state="peek"] .miauwi-head { animation: miauwi-peek 1.5s ease-in-out; }
+.miauwi-overlay[data-state="hang"] .miauwi-torso { transform: translateY(10px) scaleY(1.04); transform-origin: 50px 64px; }
+.miauwi-overlay[data-state="hang"] .miauwi-head { transform: rotate(8deg); }
+.miauwi-overlay[data-state="celebrate"] .miauwi-head { animation: miauwi-nuzzle .5s ease-in-out 3; }
+.miauwi-overlay[data-state="celebrate"] .miauwi-hearts { opacity: .9; animation: miauwi-hearts 1.5s ease-out both; }
+.miauwi-overlay[data-state="drag"] .miauwi-cat { cursor: grabbing; }
+.miauwi-overlay[data-state="drag"] .miauwi-torso { transform: scaleY(1.08); transform-origin: 50px 55px; }
+.miauwi-overlay[data-state="drag"] .miauwi-leg { transform: rotate(12deg); }
+.miauwi-overlay[data-paused="true"] *, .miauwi-overlay[data-paused="true"] *::before { animation-play-state: paused !important; }
+.miauwi-overlay[data-reduced-motion="true"] *, .miauwi-overlay[data-reduced-motion="true"] *::before { animation: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) { .miauwi-overlay *, .miauwi-overlay *::before { animation: none !important; transition: none !important; } }
+@keyframes miauwi-sprite { from { background-position: 0 var(--miauwi-sprite-y); } to { background-position: var(--miauwi-sprite-end) var(--miauwi-sprite-y); } }
+@keyframes miauwi-tail { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(8deg); } }
+@keyframes miauwi-blink { 0%, 43%, 47%, 95%, 100% { transform: scaleY(1); } 45%, 97% { transform: scaleY(.08); } }
+@keyframes miauwi-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes miauwi-step { from { transform: rotate(-15deg); } to { transform: rotate(18deg); } }
+@keyframes miauwi-stretch { 0%,100% { transform: scale(1); } 45%,70% { transform: scale(1.18,.73) translateY(3px); } }
+@keyframes miauwi-stretch-head { 0%,100% { transform: translateY(0); } 45%,70% { transform: translate(-4px,9px) rotate(-8deg); } }
+@keyframes miauwi-yawn { 0%,100% { transform: rotate(0); } 45%,70% { transform: rotate(-10deg) translateY(-3px); } }
+@keyframes miauwi-breathe { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-1.4px); } }
+@keyframes miauwi-dream { from { transform: translateY(7px); opacity: 0; } 40% { opacity: .8; } to { transform: translateY(-6px); opacity: 0; } }
+@keyframes miauwi-wake { from { transform: rotate(-12deg) scaleY(.8); } 60% { transform: rotate(6deg); } to { transform: rotate(0); } }
+@keyframes miauwi-look { 0%,100% { transform: rotate(0); } 30%,65% { transform: rotate(10deg); } }
+@keyframes miauwi-peek { 0%,100% { transform: translateY(7px); } 45% { transform: translateY(-3px) rotate(8deg); } }
+@keyframes miauwi-nuzzle { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(8deg); } }
+@keyframes miauwi-hearts { from { transform: translateY(7px); opacity: 0; } 20% { opacity: .95; } to { transform: translateY(-11px); opacity: 0; } }
+
+.miauwi-chat{display:flex;flex-direction:column;gap:10px;padding:16px;min-height:0;height:100%}
+.miauwi-chat h2{margin:0;font-size:1.3em}.miauwi-muted{color:var(--text-muted);font-size:.85em}
+.miauwi-shortcuts{display:flex;flex-wrap:wrap;gap:6px}.miauwi-shortcuts button{font-size:.85em}
+.miauwi-messages{flex:1;overflow-y:auto;min-height:100px;display:flex;flex-direction:column;gap:12px;padding:4px}
+.miauwi-message{border:1px solid var(--background-modifier-border);border-radius:12px;padding:10px;background:var(--background-secondary)}
+.miauwi-message-user{margin-left:20px;border-color:var(--interactive-accent)}.miauwi-message-assistant{margin-right:12px}
+.miauwi-message strong{display:block;color:var(--text-accent);font-size:.85em;margin-bottom:5px}
+.miauwi-preserve{white-space:pre-wrap;overflow-wrap:anywhere}.miauwi-chat-form{display:flex;gap:8px;align-items:flex-end}
+.miauwi-chat-form textarea{resize:vertical;flex:1;min-width:0}.miauwi-chat-form button{height:36px}
+.miauwi-status{font-size:.85em;color:var(--text-muted);min-height:1em}.miauwi-error{color:var(--text-error)}
+.miauwi-task-details{color:var(--text-muted);font-size:.9em}.miauwi-actions{display:flex;gap:8px;flex-wrap:wrap}
